@@ -7,6 +7,7 @@ import productRoutes from "./routes/productRoutes.js";
 import userRouter from "./routes/userRouter.js";
 import orderRouter from "./routes/orderRoutes.js";
 import uploadRouter from "./routes/uploadRoutes.js";
+import cors from "cors"
 
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
@@ -17,6 +18,7 @@ const app = express();
 app.use(express.json());
 
 connectDB();
+app.use(cors());
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRouter);
